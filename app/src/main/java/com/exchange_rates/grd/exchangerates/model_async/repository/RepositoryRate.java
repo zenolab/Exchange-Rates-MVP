@@ -3,7 +3,7 @@ package com.exchange_rates.grd.exchangerates.model_async.repository;
 import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
 
 import com.exchange_rates.grd.exchangerates.model_async.RepositoryCallbackListener;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
@@ -36,16 +36,11 @@ public class RepositoryRate implements RateContract.Repository {
                 @Override
                 public void onResponse(Call<List<Rate>> call, Response<List<Rate>> response) {
                     if (response.isSuccessful()) {
-                        Log.d(LOG_TAG, "Response " + response.code());
-                        Log.d(LOG_TAG, "Response " + response.headers());
                         Log.d(LOG_TAG, "Response " + response.body());
-
-
                         asyncListener.onSuccessAnswer(response.body());
                     } else {
-                        Log.d(LOG_TAG, "Response Unsuccessful!");
-                        Log.d(LOG_TAG, "Response code: " + response.code());
-
+                        Log.w(LOG_TAG, "Response Unsuccessful!");
+                        Log.e(LOG_TAG, "Response code: " + response.code());
                         asyncListener.onErrorАnswer(Integer.toString(response.code()));
                     }
                 }
@@ -83,7 +78,6 @@ public class RepositoryRate implements RateContract.Repository {
                 call = service.fetchData("rate_indices.json");
                 break;
         }
-
         return call;
     }
 
@@ -92,10 +86,4 @@ public class RepositoryRate implements RateContract.Repository {
             final RepositoryCallbackListener asyncListener, final Market market) {
         getRateRetrofitAsynchronous(asyncListener,market);
     }
-    @Override
-    public List<Rate> getRateRepositoryRateSync(Market tickers)  {
-        return null;
-    }
-
-
 }

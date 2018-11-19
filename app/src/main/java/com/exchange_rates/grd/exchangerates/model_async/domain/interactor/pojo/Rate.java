@@ -1,19 +1,10 @@
-package com.exchange_rates.grd.exchangerates;
+package com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
 //public class Rate implements Serializable
 public class Rate
 {
-    /**
-     * symbol - символ валютной пары
-     * bid - значение bid
-     * ask - значение ask
-     * change - величина показывающее изменение относительно предыдущей цены валютной пары (в тиках)
-     * digits - величина показывающее до скольки знаков после запятой округлена цена валютной пары
-     * lasttime - значение времени последнего изменения цены валютной пары
-     * change24h - изменение относительно закрытия предыдущего дня (в тиках)
-     */
 
     @SerializedName("symbol")
     private String symbol;

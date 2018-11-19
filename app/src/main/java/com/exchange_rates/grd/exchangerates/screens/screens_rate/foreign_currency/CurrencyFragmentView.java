@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.adapter.CustomAdapter;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
@@ -34,7 +34,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class CurrencyFragmentView extends Fragment implements
-       // CurrencyContract.View
+
         RateContract.View
 {
 
@@ -62,7 +62,6 @@ public class CurrencyFragmentView extends Fragment implements
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,12 +71,9 @@ public class CurrencyFragmentView extends Fragment implements
         progressDialog = new ProgressDialog(getActivity());
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        //hideProgress();//test
         return rootView;
 
     }
-
-
 
     private void initPresenter() {
         presenter = new CurrencyPresenterImp();
@@ -93,26 +89,6 @@ public class CurrencyFragmentView extends Fragment implements
         customAdapter = new CustomAdapter(getActivity(), data);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //--------------- Animation --------------------------
-
-//
-//            int animId;
-//            animId =  R.anim.scaling_increase;
-//            Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
-//
-//                Log.d("EfRAGMENT", "ITEM IS " + animId);
-//
-//
-//                // Animation  animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
-//                // Animation  animation = AnimationUtils.loadSettingsAnimation(getActivity().getApplicationContext(), R.anim.scaling);
-//
-//            LayoutAnimationController controller = new LayoutAnimationController(animation); //Заказать настройки дисплея управления
-//            controller.setOrder(LayoutAnimationController.ORDER_NORMAL); //Descend - step down - move down
-//            controller.setDelay((float) 0.7);
-//            //ListFragment - for list fragment
-//            getListView().setLayoutAnimation(controller);
-//            getListView().startLayoutAnimation();
-         //-----------------------------------------------------------
 
     }
 

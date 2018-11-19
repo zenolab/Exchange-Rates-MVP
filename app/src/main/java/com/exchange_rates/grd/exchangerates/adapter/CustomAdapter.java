@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//End good example rxJava >> https://www.learn2crack.com/2016/11/android-rxjava-2-and-retrofit.html
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
     private static final String LOG_TAG = new RuntimeException().getStackTrace()[0].getClassName();
@@ -30,8 +30,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public CustomAdapter(Context context,List<Rate> dataList){
         this.context = context;
         this.dataList = dataList;
-        //for rx (testing)
-        // this.dataList = dataRx = new ArrayList<>();
+
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -76,9 +75,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         holder.txtValue.setText(dataList.get(position).getBid());
         holder.txtRound.setText(dataList.get(position).getDigits() + " (round)");
 
-        float percent = Float.parseFloat(dataList.get(position).getChange24h());
-        Log.v(LOG_TAG, " float percent is "+percent);
-        if(percent >= 0){
+        float change = Float.parseFloat(dataList.get(position).getChange24h());
+        Log.v(LOG_TAG, " float percent is "+change);
+        if(change >= 0){
             holder.txtChange.setTextColor(Color.parseColor("#009900"));
         }else{
             holder.txtChange.setTextColor(Color.rgb(255,0,0));

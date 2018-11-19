@@ -1,12 +1,12 @@
 package com.exchange_rates.grd.exchangerates.screens.screens_rate;
 
 import com.exchange_rates.grd.exchangerates.Market;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.model_async.RepositoryCallbackListener;
 import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpPresenter;
 import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpView;
-import com.exchange_rates.grd.exchangerates.root_mvp.root.root_model.RootMvpInteractor;
-import com.exchange_rates.grd.exchangerates.root_mvp.root.root_model.RootMvpRepository;
+import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpInteractor;
+import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpRepository;
 
 import java.io.IOException;
 import java.util.List;
@@ -46,7 +46,6 @@ public  interface RateContract {
     }
 
     interface Repository extends RootMvpRepository {
-        List<Rate> getRateRepositoryRateSync(final Market market) throws IOException;
         void getRateRepositoryAsync(final RepositoryCallbackListener asyncListener, final Market market);
 
     }
