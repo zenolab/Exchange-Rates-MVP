@@ -20,12 +20,7 @@ import android.view.MenuItem;
 
 import com.exchange_rates.grd.exchangerates.screens.InfoDialogFragment;
 import com.exchange_rates.grd.exchangerates.screens.about.AboutFragment;
-import com.exchange_rates.grd.exchangerates.screens.screens_rate.all.AllRatesFragmentView;
-import com.exchange_rates.grd.exchangerates.screens.screens_rate.commodities.CommoditiesFragmentView;
-import com.exchange_rates.grd.exchangerates.screens.screens_rate.crypto_currency.CryptoFragmentView;
-import com.exchange_rates.grd.exchangerates.screens.screens_rate.exchange_shares.ExchangeSharesFragmentView;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.foreign_currency.CurrencyFragmentView;
-import com.exchange_rates.grd.exchangerates.screens.screens_rate.indexes.IndexesFragmentView;
 
 
 public class MainActivity extends AppCompatActivity
@@ -45,15 +40,14 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -142,19 +136,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         int id = item.getItemId();
 
-        if (id == R.id.nav_all) {
-            fragment = new AllRatesFragmentView();
-        } else if (id == R.id.nav_currency) {
+        if (id == R.id.nav_currency) {
             fragment = new CurrencyFragmentView();
-        } else if (id == R.id.nav_crypto) {
-            fragment = new CryptoFragmentView();
-        } else if (id == R.id.nav_shares) {
-             fragment = new ExchangeSharesFragmentView();
-        } else if (id == R.id.nav_commodities) {
-            fragment = new CommoditiesFragmentView();
-        } else if (id == R.id.nav_indexes) {
-             fragment = new IndexesFragmentView();
-        } else if (id == R.id.nav_info) {
+        }
+        else if (id == R.id.nav_info) {
              fragment = new AboutFragment();
         }
 

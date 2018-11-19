@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.model_sync.SynchronousRateListener;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_sync.domain.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.model_sync.repository.RepositoryRateSync;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
@@ -23,10 +23,8 @@ public class InteractorSyncRateImpl implements RateContract.Interactor {
     private  List<Rate>  rateList;
     private  List<Rate>  ratesListSorted = new ArrayList<>();;
 
-    //---------------------------------------------------------------
     public RepositoryRateSync repositoryRateSync = new RepositoryRateSync();
 
-   //------------------Constructor-------------------------------------
     /**
      * Constructor
      */
@@ -89,18 +87,7 @@ public class InteractorSyncRateImpl implements RateContract.Interactor {
             }
         });
     }
-    //---------------------------------------------------------------
-    //   AsyncTask
-//            Минусы:
-//     1. Memory leak при перевороте экрана — старая activity
-//       не уничтожиться пока задача не выполниться,
-//       и результат придет в старую activity, и, скорее всего, вы словите exception.
-//     2. Нет обработки ошибок.
-//     3. Долгие операции будут прерваны
-//       как только система решит уничтожить ваше приложение (если вы его свернули например).
-
-    //--------------------------AsyncTask-------------------------------------
-
+    //--------------------------AsyncTask-----------------------------------------------------------
     /**
      *
      *
@@ -112,25 +99,17 @@ public class InteractorSyncRateImpl implements RateContract.Interactor {
      */
 
     class RateTask extends AsyncTask<Market, Void, List<Rate>>  {
-
-        //Resolve Memory leaks
-        // http://www.ohandroid.com/android-asynctask-19.html
-        // https://habr.com/post/124484/
-        // http://developer.alexanderklimov.ru/android/debug/memoryleak.php
-        //----------------------------
         private List<Rate> rateData = null;
         SynchronousRateListener listener;
-
         RateTask(final SynchronousRateListener listener){
             this.listener = listener;
         }
-        //-----------------------------
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             Log.d(LOG_TAG, "Begin");
         }
-
         @Override
         protected List<Rate> doInBackground(Market... params) {
             try {
@@ -145,21 +124,16 @@ public class InteractorSyncRateImpl implements RateContract.Interactor {
             }
             return rateData;
         }
-
         @Override
         protected void onPostExecute(List<Rate> result) {
             super.onPostExecute(result);
             Log.d(LOG_TAG, "onPostExecute Result = " + result);
             rateData = result;
-            //Так презентентер не будет проинициализирован ,потому-что getView инициализируется в Activity
-            // AllRatesPresenterImpl presenter = new AllRatesPresenterImpl();
             listener.onSuccess(rateData);
             Log.d(LOG_TAG, "End. Result rateData = " + result);
-
         }
-
     }
-    //----------------------------------------------------------------------------------------------
+    //---------------------------------Filter-------------------------------------------------------
     @Override
     public List<Rate> searchFilterOfRate(CharSequence charSequence) {
         String charString = charSequence.toString();

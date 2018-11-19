@@ -3,8 +3,7 @@ package com.exchange_rates.grd.exchangerates.model_sync.repository;
 import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
-import com.exchange_rates.grd.exchangerates.Rate;
-import com.exchange_rates.grd.exchangerates.model_async.RepositoryCallbackListener;
+import com.exchange_rates.grd.exchangerates.model_sync.domain.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.rest_api.RetrofitCallRateService;
 import com.exchange_rates.grd.exchangerates.rest_api.RetrofitClientInstance;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
-
 
 public class RepositoryRateSync implements RateContract.Repository {
 
@@ -63,7 +61,6 @@ public class RepositoryRateSync implements RateContract.Repository {
                 call = service.fetchData("rate_indices.json");
                 break;
         }
-
         return call;
     }
 
@@ -71,10 +68,4 @@ public class RepositoryRateSync implements RateContract.Repository {
     public List<Rate> getRateRepositoryRateSync(final Market market) throws IOException {
         return getRateRetrofitSynchronous(market) ;
     }
-
-    @Override
-    public void getRateRepositoryAsync(RepositoryCallbackListener asyncListener, Market market) {
-
-    }
-
 }

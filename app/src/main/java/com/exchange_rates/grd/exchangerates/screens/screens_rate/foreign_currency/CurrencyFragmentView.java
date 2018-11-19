@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_sync.domain.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.adapter.CustomAdapter;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
@@ -33,9 +33,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CurrencyFragmentView extends Fragment implements
-       // CurrencyContract.View
-        RateContract.View
+public class CurrencyFragmentView extends Fragment implements RateContract.View
 {
 
     private static final String LOG_TAG = new RuntimeException().getStackTrace()[0].getClassName();
@@ -57,7 +55,6 @@ public class CurrencyFragmentView extends Fragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
-        Log.v(LOG_TAG, "onCreate------CurrencyFragment");
         setHasOptionsMenu(true);
     }
 
@@ -72,12 +69,8 @@ public class CurrencyFragmentView extends Fragment implements
         progressDialog = new ProgressDialog(getActivity());
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        //hideProgress();//test
         return rootView;
-
     }
-
-
 
     private void initPresenter() {
         presenter = new CurrencyPresenterImp();
@@ -88,32 +81,10 @@ public class CurrencyFragmentView extends Fragment implements
 
     @Override
     public void showData(List<Rate> data) {
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         customAdapter = new CustomAdapter(getActivity(), data);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //--------------- Animation --------------------------
-
-//
-//            int animId;
-//            animId =  R.anim.scaling_increase;
-//            Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
-//
-//                Log.d("EfRAGMENT", "ITEM IS " + animId);
-//
-//
-//                // Animation  animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
-//                // Animation  animation = AnimationUtils.loadSettingsAnimation(getActivity().getApplicationContext(), R.anim.scaling);
-//
-//            LayoutAnimationController controller = new LayoutAnimationController(animation); //Заказать настройки дисплея управления
-//            controller.setOrder(LayoutAnimationController.ORDER_NORMAL); //Descend - step down - move down
-//            controller.setDelay((float) 0.7);
-//            //ListFragment - for list fragment
-//            getListView().setLayoutAnimation(controller);
-//            getListView().startLayoutAnimation();
-         //-----------------------------------------------------------
-
     }
 
     @Override
@@ -141,8 +112,6 @@ public class CurrencyFragmentView extends Fragment implements
         progressDialog.dismiss();
     }
 
-
-    //----------------------------------------------------------------------------------------------
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_search, menu);
@@ -172,13 +141,11 @@ public class CurrencyFragmentView extends Fragment implements
             searchView.clearFocus();
         }
         super.onCreateOptionsMenu(menu, inflater);
-
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                // Not implemented here
                 return false;
             default:
                 break;
@@ -192,50 +159,37 @@ public class CurrencyFragmentView extends Fragment implements
         super.onStart();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onResume() {
         super.onResume();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         initPresenter();
-
     }
-
     @Override
     public void onPause() {
         super.onPause();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         presenter.detachView();
     }
-
     @Override
     public void onStop() {
         super.onStop();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         presenter.destroy();
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onDetach() {
         super.onDetach();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
-
     }
-
-
-
-
-
 }

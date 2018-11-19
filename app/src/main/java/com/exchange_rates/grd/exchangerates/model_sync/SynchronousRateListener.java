@@ -1,7 +1,7 @@
 package com.exchange_rates.grd.exchangerates.model_sync;
 
 
-import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.model_sync.domain.pojo.Rate;
 
 import java.util.List;
 
