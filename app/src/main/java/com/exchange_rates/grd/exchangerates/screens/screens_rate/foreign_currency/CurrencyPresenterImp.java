@@ -4,9 +4,9 @@ import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.InteractorAsyncRateImpl;
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
-import com.exchange_rates.grd.exchangerates.model_async.AsyncRateListenerOfInteractor;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.InteractorAsyncRateImpl;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.AsyncRateListenerOfInteractor;
 
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.root_mvp.PresenterBase;

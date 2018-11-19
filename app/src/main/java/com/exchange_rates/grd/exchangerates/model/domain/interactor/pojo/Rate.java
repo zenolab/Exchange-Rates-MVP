@@ -1,4 +1,4 @@
-package com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo;
+package com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo;
 
 import com.google.gson.annotations.SerializedName;
 

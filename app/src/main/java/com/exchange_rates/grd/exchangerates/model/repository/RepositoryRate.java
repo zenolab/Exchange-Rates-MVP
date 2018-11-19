@@ -1,11 +1,11 @@
-package com.exchange_rates.grd.exchangerates.model_async.repository;
+package com.exchange_rates.grd.exchangerates.model.repository;
 
 import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
 
-import com.exchange_rates.grd.exchangerates.model_async.RepositoryCallbackListener;
+import com.exchange_rates.grd.exchangerates.model.RepositoryCallbackListener;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.rest_api.RetrofitCallRateService;
 import com.exchange_rates.grd.exchangerates.rest_api.RetrofitClientInstance;

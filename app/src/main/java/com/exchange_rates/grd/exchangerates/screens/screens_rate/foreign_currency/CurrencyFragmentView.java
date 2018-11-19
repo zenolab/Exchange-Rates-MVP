@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
 import com.exchange_rates.grd.exchangerates.adapter.CustomAdapter;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 

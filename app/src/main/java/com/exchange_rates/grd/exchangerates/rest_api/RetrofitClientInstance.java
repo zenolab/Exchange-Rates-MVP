@@ -12,8 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
+
     private static Retrofit retrofit;
-    private static final String BASE_URL = "http://*******.in.ua/";
+    private static final String BASE_URL = "http://********.in.ua/";
+
+
 
     //------------------ OkHttpClient Interceptor-------------------
     static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -34,4 +37,5 @@ public class RetrofitClientInstance {
         }
         return retrofit;
     }
+
 }

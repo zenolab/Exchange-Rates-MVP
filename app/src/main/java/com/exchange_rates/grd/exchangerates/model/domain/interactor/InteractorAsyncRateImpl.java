@@ -1,15 +1,15 @@
-package com.exchange_rates.grd.exchangerates.model_async.domain.interactor;
+package com.exchange_rates.grd.exchangerates.model.domain.interactor;
 
 import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.model_async.AsyncRateListenerOfInteractor;
+import com.exchange_rates.grd.exchangerates.model.AsyncRateListenerOfInteractor;
 import com.exchange_rates.grd.exchangerates.Market;
 
 
-import com.exchange_rates.grd.exchangerates.model_async.RepositoryCallbackListener;
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
-import com.exchange_rates.grd.exchangerates.model_async.repository.RepositoryRate;
+import com.exchange_rates.grd.exchangerates.model.RepositoryCallbackListener;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.repository.RepositoryRate;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
 import java.util.ArrayList;

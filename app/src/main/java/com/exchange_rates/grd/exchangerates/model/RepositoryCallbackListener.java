@@ -1,6 +1,6 @@
-package com.exchange_rates.grd.exchangerates.model_async;
+package com.exchange_rates.grd.exchangerates.model;
 
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
 
 import java.util.List;
 

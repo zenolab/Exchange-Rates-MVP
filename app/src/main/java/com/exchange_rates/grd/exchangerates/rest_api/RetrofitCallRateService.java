@@ -2,7 +2,7 @@ package com.exchange_rates.grd.exchangerates.rest_api;
 
 
 
-import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.Rate;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
 
 import java.util.List;
 
