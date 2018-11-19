@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#515150"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".screens.about.AboutFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civProfilePic"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+
+        android:layout_gravity="center"
+        android:src="@drawable/img_rates_a001"
+
+        app:civ_border_color="#ffffff"
+        app:civ_border_width="3dp" />
+
+    <TextView
+        android:id="@+id/tvLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Finance application"
+        android:textColor="#ccc"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvLevel2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Financial data in the application are provided with a delay! This value may change at different times.Discrepancies with stock data can reach from several minutes to several hours or more."
+        android:textColor="#ccc"
+        android:textSize="16sp" />
+</FrameLayout>

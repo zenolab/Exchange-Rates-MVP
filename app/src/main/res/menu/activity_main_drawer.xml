@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="All" />
+        <item
+            android:id="@+id/nav_currency"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Currency" />
+        <item
+            android:id="@+id/nav_crypto"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="CryptoCurrency " />
+        <item
+            android:id="@+id/nav_shares"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Exchange shares" />
+        <item
+            android:id="@+id/nav_commodities"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Commodities" />
+        <item
+            android:id="@+id/nav_indexes"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Indexes" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <!--<item-->
+                <!--android:id="@+id/nav_share2"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Currency" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send2"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Indexes" />-->
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="About app" />
+        </menu>
+    </item>
+
+</menu>

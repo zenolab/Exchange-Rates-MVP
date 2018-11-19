@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ExchangeRates</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Finance rates</string>
+    <string name="nav_header_subtitle">Quotes online</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- #### ExchangesRates :  placeholder text ##### -->
+
+    <string name="display_message_complete">Done</string>
+    <string name="display_message_loading">Loading Data.. Please wait...</string>
+    <string name="display_message_1">Unable to display data!</string>
+    <string name="display_message_2">Something went wrong...Please try later!</string>
+    <string name="display_message_3">Response Unsuccessful!</string>
+    <string name="display_message_4">Error!</string>
+    <string name="action_search">input name ...</string>
+    <string name="action_info_menu">Info</string>
+    <string name="informer_app">Information</string>
+    <string name="informer_txt">Quotes are approximate.Do not treat them as accurate data!</string>
+
+    <!-- ############################################## -->
+</resources>
