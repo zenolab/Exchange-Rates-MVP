@@ -52,7 +52,6 @@ public class CurrencyFragmentView extends Fragment implements
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +59,6 @@ public class CurrencyFragmentView extends Fragment implements
         Log.v(LOG_TAG, "onCreate------CurrencyFragment");
         setHasOptionsMenu(true);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,9 +68,7 @@ public class CurrencyFragmentView extends Fragment implements
         Log.i(LOG_TAG, "onCreateView");
         progressDialog = new ProgressDialog(getActivity());
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
         return rootView;
-
     }
 
     private void initPresenter() {
@@ -84,12 +80,10 @@ public class CurrencyFragmentView extends Fragment implements
 
     @Override
     public void showData(List<Rate> data) {
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         customAdapter = new CustomAdapter(getActivity(), data);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
     }
 
     @Override
@@ -116,7 +110,6 @@ public class CurrencyFragmentView extends Fragment implements
     public void hideProgress() {
         progressDialog.dismiss();
     }
-
 
     //----------------------------------------------------------------------------------------------
     @Override
@@ -168,50 +161,37 @@ public class CurrencyFragmentView extends Fragment implements
         super.onStart();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onResume() {
         super.onResume();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         initPresenter();
-
     }
-
     @Override
     public void onPause() {
         super.onPause();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         presenter.detachView();
     }
-
     @Override
     public void onStop() {
         super.onStop();
         Log.i(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
         presenter.destroy();
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     public void onDetach() {
         super.onDetach();
         Log.e(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
-
     }
-
-
-
-
-
 }

@@ -13,13 +13,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-
     private static Retrofit retrofit;
-    private static final String BASE_URL = "http://ecocolor.in.ua/";
+    private static final String BASE_URL = "http://*********.in.ua/";
 
-
-
-    //------------------ OkHttpClient Interceptor-------------------
     static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
        static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(interceptor)
@@ -32,11 +28,7 @@ public class RetrofitClientInstance {
         if (retrofit == null) {
             retrofit = new retrofit2.Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    //retrofit2 factory adapter
-                   // .addConverterFactory(GsonConverterFactory.create())
-                    //rxJava Factory adapter
-                   // .addConverterFactory(RxJava2CallAdapterFactory.create()) // Converter Factory
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // Call Adapter Factory
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build();

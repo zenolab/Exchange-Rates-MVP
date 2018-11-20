@@ -37,7 +37,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
             getView().showError(String.valueOf(R.string.display_message_1));
         }
     }
-
     @Override
     public void destroy() {
         Log.i(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
@@ -46,18 +45,15 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
             this.disposable.dispose();
         }
     }
-
     @Override
     public void loadData(Market market) {
         Log.v(LOG_TAG, ""+new Object(){}.getClass().getEnclosingMethod().getName() );
         interactor = new InteractorRateImpl(this,market);
     }
-
     @Override
     public List<Rate> toSort(String string) {
         return interactor.searchFilterOfRate(string);
     }
-
     //-----------------------------Interactor listener ---------------------------------------------
     /**
      * @param disposable
@@ -75,7 +71,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         getView().showData(data);
         getView().showComplete();
     }
-
     /**
      * For showing error message in main thread from repository api
      *

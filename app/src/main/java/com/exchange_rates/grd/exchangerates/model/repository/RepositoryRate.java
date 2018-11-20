@@ -33,12 +33,11 @@ public class RepositoryRate implements RateContract.Repository {
         RetrofitCallRateService service = RetrofitClientInstance
                 .getRetrofitInstance()
                 .create(RetrofitCallRateService.class);
-        //---------------------------------------------------------------------
+
         service.fetchData(makeOut(market))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Rate>>() {
-
                     @Override
                     public void onNext(List<Rate> data) {
                         Log.d(LOG_TAG, "Response " + data.size());
@@ -60,13 +59,29 @@ public class RepositoryRate implements RateContract.Repository {
                         listener.subscription(disposable);
                     }
                 });
-    }
 
+                /*
+                //----------------Lambda-------------------
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        (response) -> {
+                            Log.d(LOG_TAG, "Response Success");
+                            listener.onSuccessAnswer(response);
+                        },
+                        (err) -> {
+                            Log.d(LOG_TAG, "Response error " + err.getMessage());
+                            listener.onErrorАnswer(err.getMessage());
+
+                        });
+                */
+                //-----------Functional interface-----------
+               // .subscribe(this::handleResults, this::handleError);
+    }
     /**
      * distinguish/recognize market (make out market)
      */
     private String makeOut(Market market) {
-
         switch (market) {
             case AllData:
                 return "rate_all.json";
@@ -83,15 +98,11 @@ public class RepositoryRate implements RateContract.Repository {
         }
         return null;
     }
-
     @Override
     public void getRateRepositoryAsync(
             final RepositoryListener asyncListener, final Market market) {
         getRateRetrofitAsynchronous(asyncListener,market);
-
     }
-
-
     @Nullable
     @Override
     public <T> T destroyRepository(T... n) {
