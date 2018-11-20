@@ -13,7 +13,6 @@ import retrofit2.http.Path;
 
 public interface RetrofitCallRateService {
 
-
     @Headers("Content-Type: application/json")
     @GET("android-folder/public-json/market-rate/{market}")
     Call<List <Rate> > fetchData(@Path("market") String name);

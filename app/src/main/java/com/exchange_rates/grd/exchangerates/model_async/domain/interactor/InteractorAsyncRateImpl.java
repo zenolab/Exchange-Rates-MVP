@@ -26,7 +26,6 @@ public class InteractorAsyncRateImpl implements RateContract.Interactor,Reposito
     public RepositoryRate repositoryRate = new RepositoryRate();
     private  List<Rate>  ratesListSorted = new ArrayList<>();;
 
-
          /** Constructor
           * @param presenterCallbackAcceptor - callback listener from presenter
           * @param market
@@ -35,7 +34,7 @@ public class InteractorAsyncRateImpl implements RateContract.Interactor,Reposito
         this.presenterCallbackAcceptor = presenterCallbackAcceptor;
         repositoryRate.getRateRepositoryAsync(this,market);
     }
-    //----------------------------------------------------------------------------------------------
+
     @Override
     public List<Rate> searchFilterOfRate(CharSequence charSequence) {
         String charString = charSequence.toString();
@@ -53,7 +52,7 @@ public class InteractorAsyncRateImpl implements RateContract.Interactor,Reposito
             return   ratesListSorted = filteredList;
         }
     }
-    //----------------------------------------------------------------------------------------------
+
     @Override
     public void onErrorАnswer(String string) {
         this.presenterCallbackAcceptor.onErrorMessageAsync(string);
@@ -68,7 +67,6 @@ public class InteractorAsyncRateImpl implements RateContract.Interactor,Reposito
          this.rateList = data;
          this.presenterCallbackAcceptor.onSuccessAsync(data);
     }
-    //----------------------------------------------------------------------------------------------
 }
 
 

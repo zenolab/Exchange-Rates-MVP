@@ -30,7 +30,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public CustomAdapter(Context context,List<Rate> dataList){
         this.context = context;
         this.dataList = dataList;
-
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {

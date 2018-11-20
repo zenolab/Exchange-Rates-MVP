@@ -26,13 +26,11 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
 
     @Override
     public void viewIsReady() {
-
         if(isViewAttached()){
             getView().showProgress();
         }else {
             getView().hideProgress();
             getView().showError(String.valueOf(R.string.display_message_1));
-
         }
     }
 
@@ -41,7 +39,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         Log.i(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
         interactor = null;
     }
-
 
     @Override
     public void loadData(Market market) {
@@ -54,10 +51,7 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         return interactor.searchFilterOfRate(string);
     }
 
-    //---------------Asynchronous Interactor Listener callback--------------------------------------
     /**
-     * For showing error code
-     *
      * @param code
      */
     @Override
@@ -65,11 +59,7 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         getView().hideProgress();
         getView().showError(String.valueOf(R.string.display_message_4));
     }
-
-    //!!! on a null object reference AFTER BACK TO TASK
     /**
-     * The provision  asynchronous  data from the repository to interactor/presenter
-     *
      * @param data
      */
     @Override
@@ -81,7 +71,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
 
     /**
      * For showing error message in main thread from repository api
-     *
      * @param message
      */
     @Override
@@ -89,5 +78,5 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         getView().hideProgress();
         getView().showError(String.valueOf(R.string.display_message_2));
     }
-    //----------------------------------------------------------------------------------------------
+
 }

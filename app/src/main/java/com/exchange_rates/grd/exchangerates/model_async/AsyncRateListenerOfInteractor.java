@@ -4,9 +4,7 @@ import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.pojo.R
 
 import java.util.List;
 
-/**
- * The bridge for  asynchronous callbacks  data from the repository
- */
+
 public interface AsyncRateListenerOfInteractor {
 
     /**
