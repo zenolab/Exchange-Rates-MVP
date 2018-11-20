@@ -2,7 +2,7 @@ package com.exchange_rates.grd.exchangerates.screens.screens_rate;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
-import com.exchange_rates.grd.exchangerates.model.RepositoryCallbackListener;
+import com.exchange_rates.grd.exchangerates.model.RepositoryListener;
 import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpPresenter;
 import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpView;
 import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpInteractor;
@@ -45,7 +45,7 @@ public  interface RateContract {
     }
 
     interface Repository extends RootMvpRepository {
-        void getRateRepositoryAsync(final RepositoryCallbackListener asyncListener, final Market market);
+        void getRateRepositoryAsync(final RepositoryListener asyncListener, final Market market);
 
     }
 

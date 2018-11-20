@@ -4,24 +4,27 @@ import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
-import com.exchange_rates.grd.exchangerates.model.domain.interactor.InteractorAsyncRateImpl;
+import com.exchange_rates.grd.exchangerates.model.domain.interactor.InteractorRateImpl;
 import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
-import com.exchange_rates.grd.exchangerates.model.AsyncRateListenerOfInteractor;
+import com.exchange_rates.grd.exchangerates.model.InteractorListener;
 
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.root_mvp.PresenterBase;
 
 import java.util.List;
 
+import io.reactivex.disposables.Disposable;
+
 public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         implements
         RateContract.Presenter,
-        AsyncRateListenerOfInteractor {
+        InteractorListener {
 
 
     private static final String LOG_TAG = new RuntimeException().getStackTrace()[0].getClassName();
 
-    InteractorAsyncRateImpl interactor;
+    InteractorRateImpl interactor;
+    private Disposable disposable;
 
 
     @Override
@@ -32,21 +35,22 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         }else {
             getView().hideProgress();
             getView().showError(String.valueOf(R.string.display_message_1));
-
         }
     }
 
     @Override
     public void destroy() {
         Log.i(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
-        interactor = null;
-    }
 
+        if (this.disposable  != null && !this.disposable .isDisposed()) {
+            this.disposable.dispose();
+        }
+    }
 
     @Override
     public void loadData(Market market) {
         Log.v(LOG_TAG, ""+new Object(){}.getClass().getEnclosingMethod().getName() );
-        interactor = new InteractorAsyncRateImpl(this,market);
+        interactor = new InteractorRateImpl(this,market);
     }
 
     @Override
@@ -54,26 +58,19 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         return interactor.searchFilterOfRate(string);
     }
 
-    //---------------Asynchronous Interactor Listener callback--------------------------------------
+    //-----------------------------Interactor listener ---------------------------------------------
     /**
-     * For showing error code
-     *
-     * @param code
+     * @param disposable
      */
     @Override
-    public void onErrorCodeAsync(int code) {
-        getView().hideProgress();
-        getView().showError(String.valueOf(R.string.display_message_4));
+    public void modelState(Disposable disposable) {
+                this.disposable = disposable;
     }
-
-    //!!! on a null object reference AFTER BACK TO TASK
     /**
-     * The provision  asynchronous  data from the repository to interactor/presenter
-     *
      * @param data
      */
     @Override
-    public void onSuccessAsync(List<Rate> data) {
+    public void onSuccess(List<Rate> data) {
         getView().hideProgress();
         getView().showData(data);
         getView().showComplete();
@@ -85,7 +82,7 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
      * @param message
      */
     @Override
-    public void onErrorMessageAsync(String message) {
+    public void onErrorMessage(String message) {
         getView().hideProgress();
         getView().showError(String.valueOf(R.string.display_message_2));
     }
