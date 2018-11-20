@@ -16,7 +16,9 @@ import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 
@@ -37,44 +39,27 @@ public class RepositoryRate implements RateContract.Repository {
         service.fetchData(makeOut(market))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<Rate>>() {
-                    @Override
-                    public void onNext(List<Rate> data) {
-                        Log.d(LOG_TAG, "Response " + data.size());
-                        listener.onSuccessAnswer(data);
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d(LOG_TAG, "Response " + e.getMessage());
-                        listener.onErrorАnswer(e.getMessage());
-                    }
-                    @Override
-                    public void onComplete() {
-                        Log.d(LOG_TAG, "Response complete");
-                    }
-                    @Override
-                    public void onSubscribe(Disposable disposable ) {
-                        Log.d(LOG_TAG, "Subscribe disposable is"+disposable .isDisposed());
-                        destroyRepository(disposable);
-                        listener.subscription(disposable);
-                    }
-                });
-
-                /*
-                //----------------Lambda-------------------
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        (response) -> {
+                .subscribe((response) -> {
                             Log.d(LOG_TAG, "Response Success");
                             listener.onSuccessAnswer(response);
                         },
                         (err) -> {
                             Log.d(LOG_TAG, "Response error " + err.getMessage());
                             listener.onErrorАnswer(err.getMessage());
-
                         });
-                */
+                    //------------------------------------------------------------------------------
+//                    .subscribe(new DisposableSingleObserver<List<Rate>>() {
+//                    @Override
+//                    public void onSuccess(@NonNull List<Rate> data) {
+//                        Log.d(LOG_TAG, "Response " + data.size());
+//                        listener.onSuccessAnswer(data);
+//                    }
+//
+//                    @Override
+//                    public void onError(@NonNull Throwable e) {
+//                        Log.d(LOG_TAG, "Response " + e.getMessage());
+//                        listener.onErrorАnswer(e.getMessage());
+//                    }
                 //-----------Functional interface-----------
                // .subscribe(this::handleResults, this::handleError);
     }
@@ -103,10 +88,10 @@ public class RepositoryRate implements RateContract.Repository {
             final RepositoryListener asyncListener, final Market market) {
         getRateRetrofitAsynchronous(asyncListener,market);
     }
+
     @Nullable
     @Override
     public <T> T destroyRepository(T... n) {
-        Log.d(LOG_TAG, "Subscribe disposable is"+n);
         return null;
     }
 }

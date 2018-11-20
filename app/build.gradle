@@ -51,6 +51,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     //-----------------------------------------------------
 
+    //Dagger dependencies
+    annotationProcessor "com.google.dagger:dagger-compiler:2.16"
+    implementation "com.google.dagger:dagger:2.16"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

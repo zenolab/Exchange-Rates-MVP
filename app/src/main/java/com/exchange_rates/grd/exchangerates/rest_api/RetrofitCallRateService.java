@@ -17,6 +17,6 @@ public interface RetrofitCallRateService {
 
     @Headers("Content-Type: application/json")
     @GET("android-folder/public-json/market-rate/{market}")
-    Observable<List <Rate> > fetchData(@Path("market") String name);
-    //Single<List <Rate> > fetchData(@Path("market") String name);
+   // Observable<List <Rate> > fetchData(@Path("market") String name);
+    Single<List <Rate> > fetchData(@Path("market") String name);
 }

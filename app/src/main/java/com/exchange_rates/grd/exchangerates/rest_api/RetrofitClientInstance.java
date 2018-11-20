@@ -16,6 +16,7 @@ public class RetrofitClientInstance {
     private static Retrofit retrofit;
     private static final String BASE_URL = "http://*********.in.ua/";
 
+
     static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
        static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(interceptor)
