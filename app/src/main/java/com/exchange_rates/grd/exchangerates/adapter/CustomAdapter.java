@@ -107,6 +107,5 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             Picasso.with(c).load(R.drawable.placeholder).into(img);
         }
     }
-
 }
 

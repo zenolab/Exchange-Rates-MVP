@@ -50,15 +50,12 @@ public class CurrencyFragmentView extends Fragment implements RateContract.View
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
         setHasOptionsMenu(true);
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -153,7 +150,7 @@ public class CurrencyFragmentView extends Fragment implements RateContract.View
         searchView.setOnQueryTextListener(queryTextListener);
         return super.onOptionsItemSelected(item);
     }
-    //----------------------------------------------------------------------------------------------
+
     @Override
     public void onStart() {
         super.onStart();

@@ -13,7 +13,6 @@ import java.util.List;
 
 public  interface RateContract {
 
-
     interface View extends RootMvpView {
 
         void showData(List<Rate> data);

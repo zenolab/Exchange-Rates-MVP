@@ -25,7 +25,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
 
     @Override
     public void viewIsReady() {
-
         if(isViewAttached()){
             getView().showProgress();
         }else {
@@ -50,7 +49,6 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
     public List<Rate> toSort(String string) {
         return interactor.searchFilterOfRate(string);
     }
-
 
     @Override
     public void onError() {

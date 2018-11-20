@@ -59,29 +59,24 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         mainView();
-
-
-    } // End onCreate() -----------------------------------------------------------
+    }
 
     @Override
     protected void onResume(){
         super.onResume();
         Log.d(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     protected void onPause(){
         super.onPause();
         Log.d(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
     }
-
     @Override
     protected void onStop(){
         super.onStop();
         fragmentManager = null;
         fragment = null;
     }
-
     private void mainView() {
         Log.d(LOG_TAG, " "+Thread.currentThread().getStackTrace()[2].getMethodName());
 
@@ -92,8 +87,6 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.content_frame, fragment)
                 .commit();
     }
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,7 +119,6 @@ public class MainActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

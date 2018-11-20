@@ -15,17 +15,14 @@ public class RetrofitClientInstance {
     private static Retrofit retrofit;
     private static final String BASE_URL = "http://********.in.ua/";
 
-    //------------------ OkHttpClient Interceptor---------------------------------------------------
     static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-       // interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
        static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .writeTimeout(15, TimeUnit.SECONDS)
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
-            //.cache(cache)
             .build();
-    //----------------------------------------------------------------------------------------------
+
     static Gson gson = new GsonBuilder()
             .setLenient()
             .create();
