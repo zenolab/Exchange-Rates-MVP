@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Callback for use outside by main thread
- * The bridge for  synchronous callbacks  data from the interactor/repository to presenter
  */
 public interface SynchronousRateListener {
     /**
@@ -15,7 +14,7 @@ public interface SynchronousRateListener {
      */
     void onError();
     /**
-     * The provision  synchronous  data from the interactor/repository to presenter
+     * The provision  synchronous  data
      */
     void onSuccess(List<Rate> data);
 }

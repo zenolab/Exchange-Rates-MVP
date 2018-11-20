@@ -10,13 +10,7 @@ import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpRepository;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Only  inheritance
- * Not support override
- * For override need replace "RootMvpPresenter<View>"
- *
- * PresenterBase -  is abstract class !
- */
+
 public  interface RateContract {
 
 
@@ -30,10 +24,6 @@ public  interface RateContract {
 
     }
 
-    /** Final override of generic type!
-     * Not support override  in further
-     * abstract class PresenterBase
-     */
     interface Presenter extends RootMvpPresenter<View> {
 
         void loadData(Market market);
