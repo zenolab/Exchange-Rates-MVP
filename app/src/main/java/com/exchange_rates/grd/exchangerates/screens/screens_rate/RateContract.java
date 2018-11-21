@@ -25,7 +25,6 @@ public  interface RateContract {
 
     }
 
-
     interface Presenter extends RootMvpPresenter<View> {
 
         void loadData(Market market);

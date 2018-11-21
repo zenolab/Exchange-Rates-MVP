@@ -13,6 +13,7 @@ class AttentionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_attention)
     }
+
     override fun onBackPressed() {
         super.onBackPressed();
         finishAffinity(); //min api16

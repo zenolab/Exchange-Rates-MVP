@@ -12,14 +12,12 @@ import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.root_mvp.PresenterBase;
 
 import java.util.List;
-
 import io.reactivex.disposables.Disposable;
 
 public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
         implements
         RateContract.Presenter,
         InteractorListener {
-
 
     private static final String LOG_TAG = new RuntimeException().getStackTrace()[0].getClassName();
 

@@ -118,7 +118,6 @@ public class CurrencyFragmentView extends Fragment implements
         Intent intent = new Intent(getActivity(), AttentionActivity.class);
         startActivity(intent);
     }
-
     //----------------------------------------------------------------------------------------------
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
