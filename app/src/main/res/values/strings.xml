@@ -22,6 +22,7 @@
     <string name="action_info_menu">Info</string>
     <string name="informer_app">Information</string>
     <string name="informer_txt">Quotes are approximate.Do not treat them as accurate data!</string>
+    <string name="display_message_5">SERVER IS NOT AVAILABLE !</string>
 
     <!-- ############################################## -->
 </resources>
