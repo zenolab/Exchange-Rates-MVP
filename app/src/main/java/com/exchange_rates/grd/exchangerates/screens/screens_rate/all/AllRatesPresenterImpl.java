@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.exchange_rates.grd.exchangerates.R;
 import com.exchange_rates.grd.exchangerates.model_async.domain.interactor.InteractorAsyncRateImpl;
+import com.exchange_rates.grd.exchangerates.screens.AttentionActivity;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 import com.exchange_rates.grd.exchangerates.root_mvp.PresenterBase;
 import com.exchange_rates.grd.exchangerates.Rate;
@@ -71,10 +72,15 @@ public class AllRatesPresenterImpl extends PresenterBase<RateContract.View>
             Log.d(LOG_TAG, "Uninitialized view!");
             onErrorMessageAsync(String.valueOf(R.string.display_message_4));
         }else {
-            Log.d(LOG_TAG, "UI thread");
-            getView().hideProgress();
-            getView().showData(data);
-            getView().showComplete();
+            if(data!=null){
+                Log.d(LOG_TAG, "UI thread");
+                getView().hideProgress();
+                getView().showData(data);
+                getView().showComplete();
+            }else{
+                Log.d(LOG_TAG, "SERVER IS NOT AVAILABLE !");
+                getView().showAttention();
+            }
         }
     }
 

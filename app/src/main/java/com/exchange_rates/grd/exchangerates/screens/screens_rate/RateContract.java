@@ -28,6 +28,7 @@ public  interface RateContract {
         void showComplete();
         void showProgress();
         void hideProgress();
+        void showAttention();
 
     }
 

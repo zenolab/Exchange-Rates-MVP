@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.ProgressDialog;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.widget.DefaultItemAnimator;
@@ -29,6 +30,7 @@ import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
 import com.exchange_rates.grd.exchangerates.adapter.CustomAdapter;
 import com.exchange_rates.grd.exchangerates.Rate;
+import com.exchange_rates.grd.exchangerates.screens.AttentionActivity;
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
 import java.util.List;
@@ -103,6 +105,12 @@ public class AllRatesFragmentView extends Fragment implements RateContract.View{
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
+    }
+
+    @Override
+    public void showAttention() {
+        Intent intent = new Intent(getActivity(), AttentionActivity.class);
+        startActivity(intent);
     }
 
     //----------------------------------------------------------------------------------------------
