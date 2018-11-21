@@ -6,11 +6,10 @@ import com.exchange_rates.grd.exchangerates.screens.screens_rate.foreign_currenc
 import dagger.Module;
 import dagger.Provides;
 
-//@Module
+
 public class PresenterRateModule {
 
-//    @Provides
-//    Module providerPresenterRate(){
-//         return new CurrencyPresenterImp();
-//    }
+    CurrencyPresenterImp providerPresenterRate(){
+         return new CurrencyPresenterImp();
+    }
 }

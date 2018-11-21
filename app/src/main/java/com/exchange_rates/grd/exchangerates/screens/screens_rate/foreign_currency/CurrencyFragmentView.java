@@ -51,7 +51,6 @@ public class CurrencyFragmentView extends Fragment implements
     private SearchView searchView = null;
     private SearchView.OnQueryTextListener queryTextListener;
 
-    //@Inject
     private CurrencyPresenterImp presenter;
 
 
@@ -75,8 +74,6 @@ public class CurrencyFragmentView extends Fragment implements
         Log.i(LOG_TAG, "onCreateView");
         progressDialog = new ProgressDialog(getActivity());
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
-       // App.getComponent().injectsCurrencyView(this);//dagger
 
         return rootView;
     }
