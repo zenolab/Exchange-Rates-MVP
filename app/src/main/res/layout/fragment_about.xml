@@ -40,4 +40,5 @@ tools:context=".screens.about.AboutFragment">
         android:text="Financial data in the application are provided with a delay! This value may change at different times.Discrepancies with stock data can reach from several minutes to several hours or more."
         android:textColor="#ccc"
         android:textSize="16sp" />
+
 </FrameLayout>

@@ -10,7 +10,6 @@ import com.exchange_rates.grd.exchangerates.root_mvp.root.RootMvpRepository;
 import java.io.IOException;
 import java.util.List;
 
-
 public  interface RateContract {
 
     interface View extends RootMvpView {

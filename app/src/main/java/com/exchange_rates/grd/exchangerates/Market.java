@@ -9,4 +9,5 @@ public enum Market {
     Metals,
     ExchangeShares,
     Indexes;
+
 }

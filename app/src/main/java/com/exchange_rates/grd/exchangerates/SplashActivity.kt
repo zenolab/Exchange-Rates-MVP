@@ -9,6 +9,7 @@ import android.view.WindowManager
 
 class SplashActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //hiding title bar of this activity
