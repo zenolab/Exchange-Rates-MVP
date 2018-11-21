@@ -65,14 +65,19 @@ public class CurrencyPresenterImp extends PresenterBase<RateContract.View>
      */
     @Override
     public void onSuccess(List<Rate> data) {
-        if(data!=null){
-            Log.d(LOG_TAG, "UI thread");
-            getView().hideProgress();
-            getView().showData(data);
-            getView().showComplete();
-        }else{
-            Log.d(LOG_TAG, "SERVER IS NOT AVAILABLE !");
-            getView().showAttention();
+        if(getView() == null){
+            Log.d(LOG_TAG, "Uninitialized view!");
+            onErrorMessage(String.valueOf(R.string.display_message_4));
+        }else {
+            if(data!=null){
+                Log.d(LOG_TAG, "UI thread");
+                getView().hideProgress();
+                getView().showData(data);
+                getView().showComplete();
+            }else{
+                Log.d(LOG_TAG, "SERVER IS NOT AVAILABLE !");
+                getView().showAttention();
+            }
         }
     }
     /**

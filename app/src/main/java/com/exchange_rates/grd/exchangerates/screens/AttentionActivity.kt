@@ -11,7 +11,7 @@ class AttentionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_attention)
+        setContentView(R.layout.activity_attention_screen)
     }
 
     override fun onBackPressed() {
