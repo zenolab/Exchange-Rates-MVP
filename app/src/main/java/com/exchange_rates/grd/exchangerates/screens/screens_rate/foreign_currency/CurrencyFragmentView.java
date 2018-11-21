@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.exchange_rates.grd.exchangerates.App;
 import com.exchange_rates.grd.exchangerates.Market;
 import com.exchange_rates.grd.exchangerates.R;
 import com.exchange_rates.grd.exchangerates.model.domain.interactor.pojo.Rate;
@@ -30,6 +31,8 @@ import com.exchange_rates.grd.exchangerates.screens.screens_rate.AttentionActivi
 import com.exchange_rates.grd.exchangerates.screens.screens_rate.RateContract;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 
 /**
@@ -48,7 +51,9 @@ public class CurrencyFragmentView extends Fragment implements
     private SearchView searchView = null;
     private SearchView.OnQueryTextListener queryTextListener;
 
+    //@Inject
     private CurrencyPresenterImp presenter;
+
 
     public CurrencyFragmentView() {
         // Required empty public constructor
@@ -70,6 +75,9 @@ public class CurrencyFragmentView extends Fragment implements
         Log.i(LOG_TAG, "onCreateView");
         progressDialog = new ProgressDialog(getActivity());
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
+       // App.getComponent().injectsCurrencyView(this);//dagger
+
         return rootView;
     }
 

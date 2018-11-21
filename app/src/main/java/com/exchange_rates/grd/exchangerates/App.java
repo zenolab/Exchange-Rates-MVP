@@ -2,11 +2,11 @@ package com.exchange_rates.grd.exchangerates;
 
 import android.app.Application;
 
-import com.exchange_rates.grd.exchangerates.di.AppComponent;
-import com.exchange_rates.grd.exchangerates.di.DaggerAppComponent;
+import com.exchange_rates.grd.exchangerates.di.component.AppComponent;
+import com.exchange_rates.grd.exchangerates.di.component.DaggerAppComponent;
+
 
 public class App extends Application {
-
 
     private static AppComponent component;
 
